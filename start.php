@@ -3,8 +3,8 @@
  * Elgg Tracker plugin
  * @license: GPL v 2.
  * @author slyhne
- * @copyright Zurf.dk
- * @link http://zurd.dk/elgg
+ * @copyright tiger-inc.eu
+ * @link http://tiger-inc.eu
  */
 
 elgg_register_event_handler('init','system','tracker_init');

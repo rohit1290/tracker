@@ -3,8 +3,8 @@
  * Elgg Tracker plugin
  * @license: GPL v 2.
  * @author slyhne
- * @copyright Zurf.dk
- * @link http://zurd.dk/elgg
+ * @copyright tiger-inc.eu
+ * @link http://tiger-inc.eu
  */
 
 return array(
@@ -16,6 +16,8 @@ return array(
 	'tracker:info' => "Info",
 	'tracker:searchip' => "Find alle brugere der kommer fra en specifik IP adresse:",
 	'tracker:search:info' => "Udvidet IP info",
+	'tracker:none:recorded' => "Ingen IP adresse registreret!",
+	'tracker:ip_unused' => "Intet medlem har denne IP adresse registreret.",
 	'tracker:adminlink' => "Check IP adresse",
 	'tracker:settings' => "Tracker indstillinger",
 	'tracker:display' => "Hvor skal IP adresse vises? ",
