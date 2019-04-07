@@ -2,16 +2,15 @@
 <plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
 	<name>IP Tracker</name>
 	<id>tracker</id>
-	<author>slyhne</author>
-	<version>1.9.0</version>
+	<author>Rohit Gupta, iionly, slyhne</author>
+	<version>3.0.0</version>
 	<category>security</category>
 	<blurb>IP tracker</blurb>
 	<description>Detects users IP address and record it. Search and see if others are using same IP address, check location. Integrates logbrowser plugin if active.</description>
-	<website>http://tiger-inc.eu</website>
-	<copyright>Tiger-Inc I/S</copyright>
+	<website>https://github.com/iionly/tracker</website>
 	<license>GNU Public License version 2</license>
 	<requires>
 		<type>elgg_release</type>
-		<version>1.9</version>
+		<version>3.0</version>
 	</requires>
 </plugin_manifest>
