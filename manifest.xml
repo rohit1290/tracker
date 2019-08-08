@@ -3,7 +3,7 @@
 	<name>IP Tracker</name>
 	<id>tracker</id>
 	<author>Rohit Gupta, iionly, slyhne</author>
-	<version>3.0.0</version>
+	<version>3.1.1</version>
 	<category>security</category>
 	<blurb>IP tracker</blurb>
 	<description>Detects users IP address and record it. Search and see if others are using same IP address, check location. Integrates logbrowser plugin if active.</description>
@@ -11,6 +11,6 @@
 	<license>GNU Public License version 2</license>
 	<requires>
 		<type>elgg_release</type>
-		<version>3.0</version>
+		<version>3.1</version>
 	</requires>
 </plugin_manifest>

@@ -31,20 +31,20 @@ if (elgg_is_admin_logged_in()) {
 
 		// Create tracker link
 		$info .= " | ";
-		$info .= elgg_view('output/url', array(
+		$info .= elgg_view('output/url', [
 			'text' => $ip_address,
 			'href' => "tracker/$ip_address",
 			'is_trusted' => true,
-		));
+		]);
 		// Create log link
 		if (elgg_is_active_plugin('logbrowser')) {
 			$log_url = "admin/administer_utilities/logbrowser?search_username=&ip_address=$ip_address&timelower=&timeupper=";
 			$info .= " | ";
-			$info .= elgg_view('output/url', array(
+			$info .= elgg_view('output/url', [
 				'text' => elgg_echo('logbrowser:explore'),
 				'href' => $log_url,
 				'is_trusted' => true,
-			));
+			]);
 		}
 		$info .= "</div>";
 	}

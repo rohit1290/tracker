@@ -7,7 +7,7 @@
  * @link http://tiger-inc.eu
  */
 
-elgg_register_event_handler('init','system','tracker_init');
+elgg_register_event_handler('init', 'system', 'tracker_init');
 
 function tracker_init() {
 
@@ -64,7 +64,10 @@ function tracker_log_ip($event, $object_type, $object) {
 }
 
 // Add to the user hover admin menu
-function tracker_admin_hover_menu($hook, $type, $return, $params) {
+function tracker_admin_hover_menu(\Elgg\Hook $hook) {
+	$params = $hook->getParams();
+	$return = $hook->getValue();
+	
 	$user = $params['entity'];
 	// Get IP address
 	$ip_address = $user->ip_address;

@@ -16,15 +16,15 @@ if (!$vars['entity']->tracker_url) {
 }
 
 echo "<label>" . elgg_echo('tracker:display') . "</label>";
-echo elgg_view('input/dropdown', array(
+echo elgg_view('input/dropdown', [
 	'name' => 'params[tracker_display]',
-	'options_values' => array(
+	'options_values' => [
 		'profile' => elgg_echo('tracker:display:profile'),
 		'adminmenu' => elgg_echo('tracker:display:adminmenu'),
-		),
+		],
 	'value' => $vars['entity']->tracker_display
-));
+]);
 
 echo "<br><br><label>" . elgg_echo('tracker:url') . "</label>";
-echo elgg_view('input/text', array('name' => "params[tracker_url]", 'value' => $vars['entity']->tracker_url));
+echo elgg_view('input/text', ['name' => "params[tracker_url]", 'value' => $vars['entity']->tracker_url]);
 echo "<div class=\"elgg-subtext\">" . elgg_echo('tracker:url:help') . "</div><br>";
