@@ -27,7 +27,9 @@ function tracker_init() {
 }
 
 // Function to save IP address on login
-function tracker_log_ip($event, $object_type, $object) {
+function tracker_log_ip(\Elgg\Event $event) {
+	$object = $event->getObject();
+	
 	if (($object) && ($object instanceof ElggUser)) {
 		// Try to get IP address
 		if (getenv('HTTP_CLIENT_IP')) {
