@@ -27,7 +27,7 @@ if (empty($ip)) {
 	set_input( 'ip', $ip );
 	$sidebar = elgg_view_module('aside',  elgg_echo("search"), elgg_view('tracker/search'));
 
-	$body = elgg_view_layout('content', [
+	$body = elgg_view_layout('default', [
 		'filter' => '',
 		'content' => $content,
 		'title' => $title,
@@ -36,4 +36,4 @@ if (empty($ip)) {
 
 	echo elgg_view_page($title, $body);
 
-	?>
+	
