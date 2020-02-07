@@ -12,7 +12,7 @@ if (empty($ip)) {
 	$title = elgg_echo('tracker:title', [$ip]);
 
 	// Get the list of all IP's
-	$content = elgg_list_entities_from_metadata([
+	$content = elgg_list_entities([
 		'metadata_name' => 'ip_address',
 		'metadata_value' => $ip,
 		'type' => 'user',
