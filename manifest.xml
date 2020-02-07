@@ -3,7 +3,7 @@
 	<name>IP Tracker</name>
 	<id>tracker</id>
 	<author>Rohit Gupta, iionly, slyhne</author>
-	<version>3.2.0</version>
+	<version>3.2.1</version>
 	<category>security</category>
 	<blurb>IP tracker</blurb>
 	<description>Detects users IP address and record it. Search and see if others are using same IP address, check location. Integrates logbrowser plugin if active.</description>
