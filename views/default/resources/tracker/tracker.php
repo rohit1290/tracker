@@ -1,6 +1,6 @@
 <?php
 
-	admin_gatekeeper();
+	elgg_admin_gatekeeper();
 
 	// Get IP
 	$ip = elgg_extract('ip', $vars);
