@@ -48,11 +48,13 @@ function tracker_admin_hover_menu(\Elgg\Hook $hook) {
 	// Get IP address
 	$ip_address = $user->ip_address;
 
-	$url = elgg_get_site_url() . "tracker/{$ip_address}";
-	$text = elgg_echo('tracker:adminlink');
-	$item = new ElggMenuItem('tracker', $text, $url);
-	$item->setSection('admin');
-	$return[] = $item;
+	$return['tracker'] = \ElggMenuItem::factory([
+			'name' => 'tracker',
+			'icon' => 'sync-alt',
+			'text' => elgg_echo('tracker:adminlink'),
+			'href' => elgg_get_site_url(). "tracker/{$ip_address}",
+			'section' => 'admin',
+		]);
 
 	return $return;
 }
