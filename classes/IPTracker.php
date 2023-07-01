@@ -14,7 +14,7 @@ class IPTracker extends DefaultPluginBootstrap {
   			elgg_extend_view('profile/owner_block', 'tracker/profile_ip');
   		} else {
   			// Extend avatar hover menu
-  			elgg_register_plugin_hook_handler('register', 'menu:user_hover', 'tracker_admin_hover_menu');
+  			elgg_register_event_handler('register', 'menu:user_hover', 'tracker_admin_hover_menu');
   		}
   	}
   }
