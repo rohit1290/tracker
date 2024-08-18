@@ -40,9 +40,9 @@ function tracker_log_ip(\Elgg\Event $event) {
 }
 
 // Add to the user hover admin menu
-function tracker_admin_hover_menu(\Elgg\Hook $hook) {
-	$params = $hook->getParams();
-	$return = $hook->getValue();
+function tracker_admin_hover_menu(\Elgg\Event $event) {
+	$params = $event->getParams();
+	$return = $event->getValue();
 
 	$user = $params['entity'];
 	// Get IP address
