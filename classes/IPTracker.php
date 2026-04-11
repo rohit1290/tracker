@@ -1,21 +1,63 @@
 <?php
-use Elgg\DefaultPluginBootstrap;
-
-class IPTracker extends DefaultPluginBootstrap {
-
-  public function init() {
-  	// IP logging at create/login events
-  	elgg_register_event_handler('login:after', 'user', 'tracker_log_ip');
-  	elgg_register_event_handler('create', 'user', 'tracker_log_ip');
-
-  	// Show IP address on profile
-  	if (elgg_is_admin_logged_in()) {
-  		if (elgg_get_plugin_setting('tracker_display', 'tracker') == 'profile') {
-  			elgg_extend_view('profile/owner_block', 'tracker/profile_ip');
-  		} else {
-  			// Extend avatar hover menu
-  			elgg_register_event_handler('register', 'menu:user_hover', 'tracker_admin_hover_menu');
-  		}
-  	}
+class IPTracker {
+  
+  // Function to save IP address on login
+  public static function LogIP(\Elgg\Event $event) {
+    $object = $event->getObject();
+    
+    if (($object) && ($object instanceof ElggUser)) {
+      // Get real visitor IP behind CloudFlare network
+      if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+        $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        $_SERVER['HTTP_CLIENT_IP'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+      }
+      $client  = @$_SERVER['HTTP_CLIENT_IP'];
+      $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+      $remote  = $_SERVER['REMOTE_ADDR'];
+      
+      if(filter_var($client, FILTER_VALIDATE_IP)) {
+        $ip_address = $client;
+      } elseif (filter_var($forward, FILTER_VALIDATE_IP)) {
+        $ip_address = $forward;
+      } else {
+        $ip_address = $remote;
+      }
+      
+      if (!empty($ip_address)) {
+        $object->setMetadata('ip_address', $ip_address);
+      }
+    }
+    
+    return true;
   }
+  
+  // Add to the user hover admin menu
+  /*
+  public static function AdminHoverMenu(\Elgg\Event $event) {
+    $params = $event->getParams();
+    $return = $event->getValue();
+
+    if(!elgg_is_admin_logged_in()) {
+      return $return;
+    }
+
+    $user = $params['entity'];
+    // Get IP address
+    $ip_address = $user->ip_address;
+    if (empty($ip_address)) {
+      return $return;
+    }
+    $return['tracker'] = \ElggMenuItem::factory([
+      'name' => 'tracker',
+      'icon' => 'sync-alt',
+      'text' => elgg_echo('tracker:adminlink'),
+      'href' => elgg_get_site_url(). "tracker/{$ip_address}",
+      'section' => 'admin',
+    ]);
+    
+    return $return;
+  }
+  */
 }
+
+?>

@@ -1,17 +1,38 @@
 <?php
-require_once __DIR__ . "/lib/functions.php";
-
 return [
 	'plugin' => [
 		'name' => 'IP Tracker',
-		'version' => '6.0',
-		'dependencies' => [],
+		'version' => '7.0',
 	],
-	'bootstrap' => IPTracker::class,
+	'settings' => [
+		'tracker_url' => 'https://ipinfo.io/%s',
+	],
 	'routes' => [
 		'default:object:tracker' => [
 			'path' => '/tracker/{ip}',
 			'resource' => 'tracker/tracker',
 		],
+	],
+	'view_extensions' => [
+		'profile/owner_block' => [
+			'tracker/profile_ip' => [],
+		]
+	],
+	'events' => [
+		'login:after' => [
+			'user' => [
+				'\IPTracker::LogIP' => [],
+			],
+		],
+		'create' => [
+			'user' => [
+				'\IPTracker::LogIP' => [],
+			],
+		],
+		// 'register' => [
+		// 	'menu:user_hover' => [
+		// 		'\IPTracker::AdminHoverMenu' => [],
+		// 	],
+		// ],
 	],
 ];

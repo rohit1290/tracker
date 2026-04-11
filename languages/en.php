@@ -1,15 +1,5 @@
 <?php
-/**
- * Elgg Tracker plugin
- * @license: GPL v 2.
- * @author slyhne
- * @copyright tiger-inc.eu
- * @link http://tiger-inc.eu
- */
-
-return array(
-
-	// IP related
+return [
 	'tracker:title' => "Members with IP address: %s",
 	'tracker:find' => "Find others with same IP",
 	'tracker:moreinfo' => "Info about ISP and geo location",
@@ -25,4 +15,4 @@ return array(
 	'tracker:display:adminmenu' => "In admin menu",
 	'tracker:url' => "URL for IP tracing: ",
 	'tracker:url:help' => "URL for alternative trace website (use \"%s\" to indicate where the IP address should be included in the url)."
-);
+];
